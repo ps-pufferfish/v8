@@ -932,7 +932,7 @@ void Genesis::CreateObjectFunction(DirectHandle<JSFunction> empty_function) {
         "EmptyObjectPrototype");
     map->set_is_prototype_map(true);
     // Ban re-setting Object.prototype.__proto__ to prevent Proxy security bug
-    map->set_is_immutable_proto(true);
+    // map->set_is_immutable_proto(true);
     object_function_prototype->set_map(isolate(), *map);
   }
 
