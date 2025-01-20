@@ -5256,17 +5256,17 @@ Maybe<bool> JSObject::SetPrototype(Isolate* isolate,
   // Nothing to do if prototype is already set.
   if (map->prototype() == *value) return Just(true);
 
-  bool immutable_proto = map->is_immutable_proto();
-  if (immutable_proto) {
-    DirectHandle<Object> msg;
-    if (IsJSObjectPrototype(*object)) {  // is [[Object.prototype]]
-      msg = isolate->factory()->Object_prototype_string();
-    } else {
-      msg = object;
-    }
-    RETURN_FAILURE(isolate, should_throw,
-                   NewTypeError(MessageTemplate::kImmutablePrototypeSet, msg));
-  }
+  // bool immutable_proto = map->is_immutable_proto();
+  // if (immutable_proto) {
+  //   DirectHandle<Object> msg;
+  //   if (IsJSObjectPrototype(*object)) {  // is [[Object.prototype]]
+  //     msg = isolate->factory()->Object_prototype_string();
+  //   } else {
+  //     msg = object;
+  //   }
+  //   RETURN_FAILURE(isolate, should_throw,
+  //                  NewTypeError(MessageTemplate::kImmutablePrototypeSet, msg));
+  // }
 
   // From 6.1.7.3 Invariants of the Essential Internal Methods
   //
